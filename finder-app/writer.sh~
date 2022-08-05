@@ -1,0 +1,27 @@
+#!/bin/sh
+
+if [[ $# -ne 3 ]]; then
+    echo "Illegal number of parameters."
+    exit 1
+fi
+
+writefile=$1
+writestr=$2
+
+if [[ -f $writefile  ]]; then
+    rm -rf $writefile
+fi
+
+touch $writefile
+if [[ ! $(-f $writefile) ]]; then
+    exit 0
+fi
+
+echo $writestr > $writefile
+exit 0
+
+
+
+
+
+
